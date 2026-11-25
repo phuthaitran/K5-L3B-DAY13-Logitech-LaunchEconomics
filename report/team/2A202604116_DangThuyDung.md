@@ -22,7 +22,7 @@
 
 ## 4. Bằng chứng
 
-- Commit `24a3910`: phiếu gắn nhãn CP3 và bảng khắc phục 5 ca (thông điệp commit ghi nhầm "người 1", đúng ra là người gắn nhãn 2).
+- Commit `24a3910`: phiếu gắn nhãn CP3 và bảng khắc phục 5 ca 
 - Commit `16e651f`: `chi_so.md` và `ho_so_launch_v0.md`.
 - File: `report/team/phieu_gan_nhan_CP3.md`, `report/team/bang_loi.md` (cột "Nhãn người 2" và bảng khắc phục), `report/team/chi_so.md`, `report/team/ho_so_launch_v0.md`.
 
