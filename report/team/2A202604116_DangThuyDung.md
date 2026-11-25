@@ -1,9 +1,9 @@
-# Báo cáo cá nhân — DangThuyDung-MSSV
+# Báo cáo cá nhân — DangThuyDung-2A202604116
 
 ## 1. Thông tin thành viên
 
 - Họ tên: Đặng Thùy Dung
-- MSSV: ...
+- MSSV: 2A202604116
 - Email: (không công khai)
 - Vai trong nhóm: TV4 · Người gắn nhãn 2 kiêm giữ hồ sơ
 
