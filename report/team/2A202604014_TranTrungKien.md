@@ -4,7 +4,7 @@
 
 - Họ tên: Trần Trung Kiên
 - MSSV: 2A202604014
-- Email: 2A202604014@st.neu.edu.vn
+- Email:
 - Vai trong nhóm: TV3 - Người gắn nhãn 1 (Labeler 1 & Gatekeeper điều kiện "Xong khi")
 
 ## 2. Phần việc phụ trách
