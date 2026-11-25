@@ -12,7 +12,7 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 |        |      |       |        |         |
-|   2 |        |      |       |        |         |
+|   2 | Vũ Trọng Thắng | 2A202604022 | | | TV2 - người kiểm số |
 |   3 | Trần Trung Kiên | 2A202604014 | | | TV3 - Người gắn nhãn 1 |
 |   4 | Đặng Thùy Dung | 2A202604116 | | | TV4 - Người gắn nhãn 2, kiêm giữ hồ sơ |
 
