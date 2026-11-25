@@ -227,6 +227,35 @@ if __name__ == '__main__':
           f"cps={cps_b4_15_phut:,.0f} đ "
           f"= {cps_b4_15_phut / BASELINE:.2f}× nhân viên tự làm [simulated]")
 
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    # ---------- Nhiệm vụ D1 · Cỡ mẫu ----------
+    print('\n== D1 · Cỡ mẫu (baseline=0.70, mde=0.05, alpha=0.05, power=0.8, ICC=0.02) ==')
+    from statistics import NormalDist
+
+    def tinh_co_mau(p1, p2, alpha=0.05, power=0.8):
+        za = NormalDist().inv_cdf(1 - alpha / 2)
+        zb = NormalDist().inv_cdf(power)
+        pb = (p1 + p2) / 2
+        return math.ceil((za * math.sqrt(2 * pb * (1 - pb)) + zb * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2 / (p2 - p1) ** 2)
+
+    n_yc = tinh_co_mau(0.70, 0.75)
+    print(f"a) Chia theo yêu cầu: {n_yc} yêu cầu mỗi nhóm")
+
+    de_nv_75 = 1 + (75 - 1) * 0.02
+    n_nv_75 = math.ceil(n_yc * de_nv_75)
+    nv_moi_nhom_75 = math.ceil(n_nv_75 / 75)
+    print(f"b) Theo nhân viên m=75: DE={de_nv_75:.2f}, n={n_nv_75} mỗi nhóm -> {nv_moi_nhom_75} nhân viên/nhóm (tổng {nv_moi_nhom_75*2} > 40: KHÔNG ĐỦ NGƯỜI)")
+
+    tran_20_nv = 20 / 0.02
+    print(f"c) 20 nhân viên mỗi nhóm: trần cỡ mẫu hiệu dụng c/ICC = {tran_20_nv:.0f} < {n_yc} (KHÔNG ĐẠT mức chênh 5 điểm)")
+
+    tran_6_depot = 6 / 0.02
+    print(f"d) 6 depot mỗi nhóm: trần cỡ mẫu hiệu dụng c/ICC = {tran_6_depot:.0f} < {n_yc} (KHÔNG ĐẠT)")
+
+    n_yc_6pt = tinh_co_mau(0.70, 0.76)
+    m_can = math.ceil((0.98 * n_yc_6pt) / (20 - 0.02 * n_yc_6pt))
+    de_6pt = 1 + (m_can - 1) * 0.02
+    print(f"e) Mức chênh 6 điểm: {n_yc_6pt} mỗi nhóm -> cần m >= {m_can} yêu cầu/nhân viên (DE={de_6pt:.2f})")
+
+    tl_mo_lai = reqs['mo_lai_trong_7_ngay'].mean()
+    tl_mo_lai_pv = pv['mo_lai_trong_7_ngay'].mean()
+    print(f"Tỉ lệ mo_lai_trong_7_ngay: toàn bộ={tl_mo_lai:.2%}, phạm vi noi_dia+hang_nang={tl_mo_lai_pv:.2%}")

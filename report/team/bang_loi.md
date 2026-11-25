@@ -4,38 +4,41 @@
 
 ## Hai bộ nhãn độc lập
 
-Người gắn nhãn 1: ... · Người gắn nhãn 2: ... (gắn trong 8 phút, không trao đổi)
+Người gắn nhãn 1: Trần Trung Kiên · Người gắn nhãn 2: Đặng Thùy Dung (gắn trong 8 phút, không trao đổi)
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
-| 1 | ... | ... | ... | ... |
-| 2 | ... | ... | ... | ... |
-| 3 | ... | ... | ... | ... |
-| 4 | ... | ... | ... | ... |
-| 5 | ... | ... | ... | ... |
-| 6 | ... | ... | ... | ... |
-| 7 | ... | ... | ... | ... |
-| 8 | ... | ... | ... | ... |
-| 9 | ... | ... | ... | ... |
-| 10 | ... | ... | ... | ... |
-| 11 | ... | ... | ... | ... |
-| 12 | ... | ... | ... | ... |
-| 13 | ... | ... | ... | ... |
-| 14 | ... | ... | ... | ... |
-| 15 | ... | ... | ... | ... |
-| 16 | ... | ... | ... | ... |
-| 17 | ... | ... | ... | ... |
-| 18 | ... | ... | ... | ... |
-| 19 | ... | ... | ... | ... |
-| 20 | ... | ... | ... | ... |
+| 1 | Do người dùng | Hệ thống | Không | Do người dùng |
+| 2 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 3 | Ngữ cảnh | Ngữ cảnh | Có | Ngữ cảnh |
+| 4 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 5 | Ngầm | Ngầm | Có | Ngầm |
+| 6 | Do người dùng | Do người dùng | Có | Do người dùng |
+| 7 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 8 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 9 | Do người dùng | Hệ thống | Không | Do người dùng |
+| 10 | Ngữ cảnh | Giới hạn hệ thống | Không | Ngữ cảnh |
+| 11 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 12 | Ngầm | Ngầm | Có | Ngầm |
+| 13 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 14 | Do người dùng | Hệ thống | Không | Do người dùng |
+| 15 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 16 | Ngữ cảnh | Ngữ cảnh | Có | Ngữ cảnh |
+| 17 | Ngầm | Ngầm | Có | Ngầm |
+| 18 | Ngữ cảnh | Ngữ cảnh | Có | Ngữ cảnh |
+| 19 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 20 | Hệ thống | Hệ thống | Có | Hệ thống |
 
-**Tỉ lệ đồng thuận:** ... / 20 = ...%
+**Tỉ lệ đồng thuận:** 16 / 20 = 80%
 
 ## Quy tắc phân biệt cho các ca không trùng
 
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
 
-- ...
+- **Ca 1 (Do người dùng, không phải Hệ thống):** Khách hàng nhập số tài khoản thiếu chữ số là lỗi đầu vào từ người dùng; việc ngân hàng trả về lỗi và trợ lý không chặn trước nằm ở khâu khắc phục.
+- **Ca 9 (Do người dùng, không phải Hệ thống):** Nguyên nhân gốc là khách nhập mã của sàn TMĐT thay vì mã vận đơn của LogiX; trợ lý báo mã không hợp lệ là đúng, việc thiếu gợi ý tra mã là giải pháp cải thiện.
+- **Ca 10 (Ngữ cảnh, không phải Giới hạn hệ thống):** Trợ lý từ chối hoàn phí do bão là hoàn toàn đúng điều khoản bất khả kháng, chỉ do giao diện ứng dụng vẫn hiển thị cam kết 24 giờ gây xung đột ngữ cảnh kỳ vọng với khách hàng.
+- **Ca 14 (Do người dùng, không phải Hệ thống):** Khách hàng thao tác bấm nhầm nút xác nhận khi chưa nhận được tiền; hệ thống đóng yêu cầu theo đúng luồng sự kiện khách gửi.
 
 ## Bảng khắc phục cho 5 ca, mỗi loại một ca
 
