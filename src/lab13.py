@@ -278,3 +278,26 @@ if __name__ == '__main__':
     print('3. Lan truyền: Có rủi ro; giảm bằng tài khoản riêng và log theo staff_id.')
     print('4. Viết trước: Chỉ số chính, ngưỡng, rollout và ngày quyết định đã được ghi trước.')
     print('5. Cụm: Có đúng 20 nhân viên mỗi nhóm; đây là đánh đổi vì không đủ mẫu 5 điểm.')
+
+    # ---------- Nhiệm vụ E1 · Tính thử ba chỉ số ----------
+    # Đợt chạy thử không có nhóm đối chứng: chỉ viết "chỉ số trong đợt chạy thử là ...".
+    print('\n== E1 · Ba chỉ số trong đợt chạy thử (đo từ dữ liệu, không có đối chứng) ==')
+
+    def ba_chi_so(r):
+        chinh = ((r['dong_trong_24h'] == 1) & (r['mo_lai_trong_7_ngay'] == 0))
+        xem = r[r['duoc_xem_lai'] == 1]
+        bo_qua = xem['quyet_dinh_xem_lai'].isin(['sua', 'bo'])
+        an_toan = r['mo_lai_trong_7_ngay'] == 1
+        return [('Chính · đóng 24h, không mở lại 7 ngày', chinh.sum(), len(r)),
+                ('Dùng · bỏ qua gợi ý (sua + bo) / được xem lại', bo_qua.sum(), len(xem)),
+                ('An toàn · mở lại trong 7 ngày', an_toan.sum(), len(r))]
+
+    for nhan, tap in [('Toàn bộ 1.200 yêu cầu', reqs),
+                      ('Phạm vi noi_dia + hang_nang', reqs[reqs['loai'].isin(PHAM_VI)])]:
+        print(nhan)
+        for ten, tu, mau in ba_chi_so(tap):
+            print(f'  {ten:48s} {tu / mau:7.2%} ({tu}/{mau})')
+    pv_e = reqs[reqs['loai'].isin(PHAM_VI)]
+    so_lam_lai_pv = int((pv_e['ket_qua'] == 'lam_lai').sum())
+    print(f'Tỉ lệ làm lại trong phạm vi (cho dòng rủi ro E2): '
+          f'{so_lam_lai_pv / len(pv_e):.1%} ({so_lam_lai_pv}/{len(pv_e)})')
