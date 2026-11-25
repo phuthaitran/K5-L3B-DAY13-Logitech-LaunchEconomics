@@ -6,7 +6,8 @@
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY13-Logitech-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
 - URL repo, nhánh nộp, commit chốt:
-    - URL: https://github.com/phuthaitran/K5-L3B-DAY13-Logitech-LaunchEconomics/commit/754cfb634c501baecd996ed2a8e0ce18d162cf1e
+    - URL: https://github.com/phuthaitran/K5-L3B-DAY13-Logitech-LaunchEconomics
+    - Commit chốt: `f9badb3`
 
 ## Thành viên
 
