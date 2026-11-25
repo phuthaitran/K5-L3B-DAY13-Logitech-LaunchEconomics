@@ -19,6 +19,9 @@
 # Đánh đổi đã chấp nhận (nếu cách chia chưa đạt cả hai điều kiện): Chấp nhận tăng mức chênh phát hiện được (MDE) từ 5 điểm lên 6 điểm (cần m >= 299 yêu cầu/nhân viên). Nếu hiệu quả thực tế chỉ là 5 điểm, thống kê có nguy cơ thiếu lực (power giảm xuống ~0,64).
 #
 # Tỉ lệ mo_lai_trong_7_ngay hiện tại và ngưỡng an toàn đã chọn: Hiện tại 4,25% trên toàn bộ mẫu (3,97% trong phạm vi noi_dia + hang_nang). Ngưỡng an toàn chọn là cao hơn đối chứng >= 2 điểm hoặc trần tuyệt đối 6% (không chọn 3% vì sẽ làm pilot bị dừng ngay tuần đầu).
+#
+# Quyết định cần nhóm xác nhận: các ngưỡng 8.000 đ/việc, 40% bỏ qua gợi ý, 10%/25%/50% rollout
+# và ngày quyết định 2027-01-05 chưa có trong dữ liệu/slide dưới dạng số bắt buộc.
 
 pilot:
   owner: "Giám đốc vận hành LogiX-VN"
@@ -51,3 +54,4 @@ pilot:
   simulated_inputs:
     - "phut_xem_lai_simulated (số phút xem lại giả lập từ đợt chạy thử 2 tuần)"
     - "phut_lam_lai_simulated (số phút làm lại giả lập từ đợt chạy thử 2 tuần)"
+    - "CP2 xem lại 100% noi_dia+hang_nang: 11.743 đ/việc với 9 phút làm lại/ca; 12.414 đ/việc với 15,3 phút làm lại/ca"

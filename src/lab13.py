@@ -256,6 +256,25 @@ if __name__ == '__main__':
     de_6pt = 1 + (m_can - 1) * 0.02
     print(f"e) Mức chênh 6 điểm: {n_yc_6pt} mỗi nhóm -> cần m >= {m_can} yêu cầu/nhân viên (DE={de_6pt:.2f})")
 
+    # Nếu lấy n=859 cho mức chênh 5 điểm thay vì 6 điểm, power xấp xỉ 0,64.
+    za = NormalDist().inv_cdf(1 - 0.05 / 2)
+    pb_5pt = (0.70 + 0.75) / 2
+    zb_5pt = ((0.75 - 0.70) * math.sqrt(n_yc_6pt)
+              - za * math.sqrt(2 * pb_5pt * (1 - pb_5pt))) / math.sqrt(
+                  0.70 * (1 - 0.70) + 0.75 * (1 - 0.75))
+    power_5pt = NormalDist().cdf(zb_5pt)
+    print(f"Power xấp xỉ nếu hiệu quả thực tế chỉ là 5 điểm với n={n_yc_6pt}/nhóm: "
+          f"{power_5pt:.2f}")
+
     tl_mo_lai = reqs['mo_lai_trong_7_ngay'].mean()
     tl_mo_lai_pv = pv['mo_lai_trong_7_ngay'].mean()
-    print(f"Tỉ lệ mo_lai_trong_7_ngay: toàn bộ={tl_mo_lai:.2%}, phạm vi noi_dia+hang_nang={tl_mo_lai_pv:.2%}")
+    so_mo_lai = int(reqs['mo_lai_trong_7_ngay'].sum())
+    print(f"Tỉ lệ mo_lai_trong_7_ngay: toàn bộ={tl_mo_lai:.2%} "
+          f"({so_mo_lai}/{len(reqs)}), phạm vi noi_dia+hang_nang={tl_mo_lai_pv:.2%}")
+
+    print('\n== D2 · Kiểm tra khả năng tách tác động ==')
+    print('1. Đối chứng: Có, 20 nhân viên đối chứng chạy cùng thời gian tại 12 depot.')
+    print('2. Cách chia: Ngẫu nhiên, dùng seed ghi trước và phân tầng theo depot.')
+    print('3. Lan truyền: Có rủi ro; giảm bằng tài khoản riêng và log theo staff_id.')
+    print('4. Viết trước: Chỉ số chính, ngưỡng, rollout và ngày quyết định đã được ghi trước.')
+    print('5. Cụm: Có đúng 20 nhân viên mỗi nhóm; đây là đánh đổi vì không đủ mẫu 5 điểm.')
